@@ -1,0 +1,310 @@
+<html><head><base href="https://locavan.com/contact">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Contact</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 7rem 5% 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+  }
+
+  .contact-container {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .contact-form {
+    flex: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .contact-info {
+    flex: 1;
+  }
+
+  .info-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-item p {
+    margin: 0;
+  }
+
+  .social-links {
+    margin-top: 2rem;
+  }
+
+  .social-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--secondary-color);
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contactez-nous</h2>
+    <div class="contact-container">
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <h3>Adresse</h3>
+          <p>123 Avenue des Aventuriers, 75001 Paris, France</p>
+        </div>
+        <div class="info-item">
+          <h3>Téléphone</h3>
+          <p>+33 1 23 45 67 89</p>
+        </div>
+        <div class="info-item">
+          <h3>Email</h3>
+          <p>contact@locavan.com</p>
+        </div>
+        <div class="info-item">
+          <h3>Horaires d'ouverture</h3>
+          <p>Lundi - Vendredi : 9h00 - 18h00</p>
+          <p>Samedi : 10h00 - 16h00</p>
+          <p>Dimanche : Fermé</p>
+        </div>
+        <div class="social-links">
+          <a href="https://facebook.com/locavan" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://twitter.com/locavan" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a href="https://instagram.com/locavan" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Ici, vous pouvez ajouter le code pour traiter l'envoi du formulaire
+      alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<html><head><base href="https://campervan-rentals.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location de Camping-cars et Vans | Votre Aventure Commence Ici</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #ff6600;
+  }
+  
+  .hero {
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/random/1920x1080/?campervan');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .toggle-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .toggle-switch label {
+    padding: 0.5rem 1rem;
+    background: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  .toggle-switch input[type="radio"] {
+    display: none;
+  }
+  
+  .toggle-switch input[type="radio"]:checked + label {
+    background: #ff6600;
+    color: white;
+  }
+  
+  .search-form input[type="text"],
+  .search-form input[type="date"],
+  .search-form button {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-form button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .search-form button:hover {
+    background: #e55c00;
+  }
+  
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem 5%;
+  }
+  
+  .article {
+    width: 30%;
+    margin-bottom: 2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .article-content {
+    padding: 1rem;
+  }
+  
+  .reviews {
+    background: #f0f0f0;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+  
+  .review-container {
+    display: flex;
+    animation: scroll 60s linear infinite;
+  }
+  
+  .review {
+    flex: 0 0 300px;
+    background: white;
+    margin: 0 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  footer a {
+    color: #ff6600;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/camping-cars">Camping-cars</a>
+      <a href="/vans">Vans</a>
+      <a href="/connexion">Espace utilisateur</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <form class="search-form">
+        <div class="toggle-switch">
+          <input type="radio" id="camping-car" name="vehicle-type" value="camping-car" checked>
+          <label for="camping-car">Camping-car</label>
+          <input type="radio" id="van" name="vehicle-type" value="van">
+          <label for="van">Van</label>
+        </div>
+        <input type="text" placeholder="Lieu de départ">
+        <input type="date" placeholder="Date de départ">
+        <input type="date" placeholder="Date de retour">
+        <button type="submit">Rechercher</button>
+      </form>
+    </section>
+
+    <section class="articles">
+      <article class="article">
+        <img alt="Intérieur luxueux d'un camping-car moderne, style épuré" src="https://source.unsplash.com/random/400x300/?campervan-interior" width="400" height="300">
+        <div class="article-content">
+          <h2>Le confort du camping-car moderne</h2>
+          <p>Découvrez comment les camping-cars d'aujourd'hui allient luxe et fonctionnalité pour une expérience de voyage incomparable.</p>
+        </div>
+      </article>
+      <article class="article">
+        <img alt="Van aménagé garé près d'un lac de montagne, coucher de soleil" src="https://source.unsplash.com/random/400x300/?campervan-lake" width="400" height="300">
+        <div class="article-content">
+          <h2>Les meilleures destinations pour votre van</h2>
+          <p>Explorez notre sélection des plus beaux endroits à visiter en van, des montagnes aux plages.</p>
+        </div>
+      </article>
+      <article class="article">
+        <img alt="Couple préparant un repas dans un van aménagé, ambiance chaleureuse" src="https://source.unsplash.com/random/400x300/?van-cooking" width="400" height="300">
+        <div class="article-content">
+          <h2>La cuisine nomade : conseils et astuces</h2>
+          <p>Apprenez à cuisiner comme un chef dans l'espace restreint de votre van ou camping-car.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="reviews">
+      <div class="review-container">
+        <div class="review">
+          <h3>Marie L.</h3>
+          <p>"Une expérience inoubliable ! Le camping-car était parfait et le service client exceptionnel."</p>
+        </div>
+        <div class="review">
+          <h3>Thomas D.</h3>
+          <p>"Notre road-trip en van a été magique. Merci pour cette aventure !"</p>
+        </div>
+        <div class="review">
+          <h3>Sophie M.</h3>
+          <p>"Réservation facile, véhicule impeccable. Je recommande vivement !"</p>
+        </div>
+        <div class="review">
+          <h3>Pierre B.</h3>
+          <p>"Un grand merci pour votre professionnalisme. Nous reviendrons l'année prochaine !"</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="/mentions-legales">Mentions légales</a> |
+    <a href="/cgv">CGV</a> |
+    <a href="/politique-confidentialite">Politique de confidentialité</a> |
+    <a href="/contact">Contact</a>
+    <p>&copy; 2023 Location de Camping-cars et Vans. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const form = document.querySelector('.search-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const vehicleType = document.querySelector('input[name="vehicle-type"]:checked').value;
+        const location = document.querySelector('input[type="text"]').value;
+        const startDate = document.querySelector('input[type="date"]:nth-of-type(1)').value;
+        const endDate = document.querySelector('input[type="date"]:nth-of-type(2)').value;
+        
+        alert(`Recherche de ${vehicleType} à ${location} du ${startDate} au ${endDate}`);
+        // Ici, vous pouvez ajouter la logique pour envoyer ces données à votre backend
+      });
+
+      // Animation smooth scroll pour les liens de navigation
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          if (href.startsWith('/')) {
+            document.querySelector(href).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Effet parallax pour l'image de fond
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+      });
+    });
+  </script>
+</body>
+</html>

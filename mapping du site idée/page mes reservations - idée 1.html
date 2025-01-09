@@ -1,0 +1,358 @@
+<html><head><base href="https://locavan.com/espace-utilisateur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Mes Réservations</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --hover-color: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar a:hover, .sidebar a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .reservation-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .reservation-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .reservation-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .vehicle-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .reservation-details h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .reservation-details p {
+    margin: 0.5rem 0;
+  }
+
+  .reservation-status {
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  .status-confirmed {
+    background-color: #e7f5e7;
+    color: #2ecc71;
+  }
+
+  .status-pending {
+    background-color: #fff7e6;
+    color: #f39c12;
+  }
+
+  .status-completed {
+    background-color: #e8f4fd;
+    color: #3498db;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">Mon Profil</a></li>
+        <li><a href="#" class="active">Mes Réservations</a></li>
+        <li><a href="#">Mes Véhicules</a></li>
+        <li><a href="#">Messagerie</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Mes Réservations</h2>
+      <div class="reservation-list">
+        <div class="reservation-card">
+          <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Camping-car Luxe Horizon" class="vehicle-image">
+          <div class="reservation-details">
+            <h3>Camping-car Luxe Horizon</h3>
+            <p><strong>Dates:</strong> 15 juillet 2023 - 22 juillet 2023</p>
+            <p><strong>Lieu de prise en charge:</strong> Paris</p>
+            <p><strong>Prix total:</strong> 980€</p>
+            <span class="reservation-status status-confirmed">Confirmée</span>
+          </div>
+        </div>
+        <div class="reservation-card">
+          <img src="https://images.unsplash.com/photo-1555876484-a71a693b161b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Van Aventure Plus" class="vehicle-image">
+          <div class="reservation-details">
+            <h3>Van Aventure Plus</h3>
+            <p><strong>Dates:</strong> 5 août 2023 - 10 août 2023</p>
+            <p><strong>Lieu de prise en charge:</strong> Lyon</p>
+            <p><strong>Prix total:</strong> 450€</p>
+            <span class="reservation-status status-pending">En attente</span>
+          </div>
+        </div>
+        <div class="reservation-card">
+          <img src="https://images.unsplash.com/photo-1518886849533-2a7b847ad78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Camping-car Famille Confort" class="vehicle-image">
+          <div class="reservation-details">
+            <h3>Camping-car Famille Confort</h3>
+            <p><strong>Dates:</strong> 1 juin 2023 - 8 juin 2023</p>
+            <p><strong>Lieu de prise en charge:</strong> Marseille</p>
+            <p><strong>Prix total:</strong> 840€</p>
+            <span class="reservation-status status-completed">Terminée</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const sidebarLinks = document.querySelectorAll('.sidebar a');
+      const contentSection = document.querySelector('.content');
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // Simuler le chargement du contenu
+          contentSection.innerHTML = '<h2>Chargement...</h2>';
+          setTimeout(() => {
+            switch(link.textContent) {
+              case 'Mon Profil':
+                contentSection.innerHTML = `
+                  <h2>Mon Profil</h2>
+                  <form class="profile-form">
+                    <!-- Le contenu du formulaire de profil ici -->
+                  </form>
+                `;
+                break;
+              case 'Mes Réservations':
+                // Garder le contenu actuel des réservations
+                break;
+              case 'Mes Véhicules':
+                contentSection.innerHTML = `
+                  <h2>Mes Véhicules</h2>
+                  <p>Vous n'avez aucun véhicule enregistré.</p>
+                  <button>Ajouter un véhicule</button>
+                `;
+                break;
+              case 'Messagerie':
+                contentSection.innerHTML = `
+                  <h2>Messagerie</h2>
+                  <p>Vous n'avez aucun message.</p>
+                `;
+                break;
+              case 'Paramètres':
+                contentSection.innerHTML = `
+                  <h2>Paramètres</h2>
+                  <p>Options de paramètres à venir.</p>
+                `;
+                break;
+              case 'Déconnexion':
+                if(confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                  window.location.href = '/';
+                }
+                break;
+            }
+          }, 500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

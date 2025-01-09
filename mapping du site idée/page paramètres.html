@@ -1,0 +1,326 @@
+<html><head><base href="https://locavan.com/espace-utilisateur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Espace Utilisateur - Paramètres</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --hover-color: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar a:hover, .sidebar a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .settings-section {
+    margin-bottom: 2rem;
+  }
+
+  .settings-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">Mon Profil</a></li>
+        <li><a href="#">Mes Réservations</a></li>
+        <li><a href="#">Mes Véhicules</a></li>
+        <li><a href="#">Messagerie</a></li>
+        <li><a href="#" class="active">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Paramètres</h2>
+      
+      <div class="settings-section">
+        <h3>Informations personnelles</h3>
+        <form>
+          <div class="form-group">
+            <label for="fullname">Nom complet</label>
+            <input type="text" id="fullname" name="fullname" value="Jean Dupont">
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" value="jean.dupont@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Numéro de téléphone</label>
+            <input type="text" id="phone" name="phone" value="06 12 34 56 78">
+          </div>
+          <button type="submit">Mettre à jour les informations</button>
+        </form>
+      </div>
+      
+      <div class="settings-section">
+        <h3>Mot de passe</h3>
+        <form>
+          <div class="form-group">
+            <label for="current-password">Mot de passe actuel</label>
+            <input type="password" id="current-password" name="current-password">
+          </div>
+          <div class="form-group">
+            <label for="new-password">Nouveau mot de passe</label>
+            <input type="password" id="new-password" name="new-password">
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+          </div>
+          <button type="submit">Changer le mot de passe</button>
+        </form>
+      </div>
+      
+      <div class="settings-section">
+        <h3>Préférences de notification</h3>
+        <form>
+          <div class="form-group">
+            <label for="email-notifications">Notifications par e-mail</label>
+            <select id="email-notifications" name="email-notifications">
+              <option value="all">Toutes les notifications</option>
+              <option value="important">Notifications importantes uniquement</option>
+              <option value="none">Aucune notification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sms-notifications">Notifications par SMS</label>
+            <select id="sms-notifications" name="sms-notifications">
+              <option value="all">Toutes les notifications</option>
+              <option value="important">Notifications importantes uniquement</option>
+              <option value="none">Aucune notification</option>
+            </select>
+          </div>
+          <button type="submit">Enregistrer les préférences</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Ici, vous pouvez ajouter du JavaScript pour gérer les interactions utilisateur,
+    // comme la validation des formulaires ou l'envoi de requêtes AJAX pour mettre à jour les paramètres.
+  </script>
+</body>
+</html>

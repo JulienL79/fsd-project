@@ -1,0 +1,344 @@
+<html><head><base href="https://locavan.com/espace-utilisateur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Espace Utilisateur - Messagerie</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --hover-color: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar a:hover, .sidebar a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+
+  .message-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .message-item {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .message-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #777;
+  }
+
+  .message-content {
+    flex-grow: 1;
+  }
+
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .message-sender {
+    font-weight: bold;
+  }
+
+  .message-date {
+    color: #777;
+    font-size: 0.9rem;
+  }
+
+  .message-preview {
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .new-message-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+  }
+
+  .new-message-btn:hover {
+    background-color: #2980b9;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">Mon Profil</a></li>
+        <li><a href="#">Mes Réservations</a></li>
+        <li><a href="#">Mes Véhicules</a></li>
+        <li><a href="#" class="active">Messagerie</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Messagerie</h2>
+      <button class="new-message-btn">Nouveau message</button>
+      <ul class="message-list">
+        <li class="message-item">
+          <div class="message-avatar">JD</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Jean Dupont</span>
+              <span class="message-date">Il y a 2 heures</span>
+            </div>
+            <p class="message-preview">Bonjour, je suis intéressé par votre camping-car. Est-il toujours disponible pour...</p>
+          </div>
+        </li>
+        <li class="message-item">
+          <div class="message-avatar">ML</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Marie Leblanc</span>
+              <span class="message-date">Hier</span>
+            </div>
+            <p class="message-preview">Merci pour votre réponse. Pouvez-vous me donner plus de détails sur les équipements...</p>
+          </div>
+        </li>
+        <li class="message-item">
+          <div class="message-avatar">PD</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Pierre Durand</span>
+              <span class="message-date">Il y a 3 jours</span>
+            </div>
+            <p class="message-preview">Bonjour, j'aimerais savoir si vous proposez une assurance complémentaire pour...</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const sidebarLinks = document.querySelectorAll('.sidebar a');
+      const contentSection = document.querySelector('.content');
+      const newMessageBtn = document.querySelector('.new-message-btn');
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // Simuler le chargement du contenu
+          contentSection.innerHTML = '<h2>Chargement...</h2>';
+          setTimeout(() => {
+            // Ici, vous pouvez ajouter la logique pour charger le contenu approprié
+            contentSection.innerHTML = `<h2>${link.textContent}</h2><p>Contenu de ${link.textContent} à implémenter.</p>`;
+          }, 500);
+        });
+      });
+
+      newMessageBtn.addEventListener('click', () => {
+        alert('Fonctionnalité de nouveau message à implémenter.');
+      });
+
+      // Ajouter une interaction sur les éléments de message
+      const messageItems = document.querySelectorAll('.message-item');
+      messageItems.forEach(item => {
+        item.addEventListener('click', () => {
+          alert('Ouvrir la conversation complète (à implémenter)');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

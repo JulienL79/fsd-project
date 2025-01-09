@@ -1,0 +1,345 @@
+<html><head><base href="https://locavan.com/espace-utilisateur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Espace Utilisateur</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --hover-color: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar a:hover, .sidebar a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+
+  .profile-form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  input, select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" class="active">Mon Profil</a></li>
+        <li><a href="#">Mes Réservations</a></li>
+        <li><a href="#">Mes Véhicules</a></li>
+        <li><a href="#">Messagerie</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Mon Profil</h2>
+      <form class="profile-form">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="name" value="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" value="john.doe@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Numéro de téléphone</label>
+          <input type="tel" id="phone" name="phone" value="+33 6 12 34 56 78">
+        </div>
+        <div class="form-group">
+          <label for="address">Adresse</label>
+          <input type="text" id="address" name="address" value="123 Rue de la République, 75001 Paris">
+        </div>
+        <div class="form-group">
+          <label for="birthdate">Date de naissance</label>
+          <input type="date" id="birthdate" name="birthdate" value="1990-01-01">
+        </div>
+        <div class="form-group">
+          <label for="language">Langue préférée</label>
+          <select id="language" name="language">
+            <option value="fr" selected>Français</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+        <button type="submit">Mettre à jour le profil</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const sidebarLinks = document.querySelectorAll('.sidebar a');
+      const contentSection = document.querySelector('.content');
+
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // Simuler le chargement du contenu
+          contentSection.innerHTML = '<h2>Chargement...</h2>';
+          setTimeout(() => {
+            switch(link.textContent) {
+              case 'Mon Profil':
+                contentSection.innerHTML = `
+                  <h2>Mon Profil</h2>
+                  <form class="profile-form">
+                    <!-- Le contenu du formulaire de profil ici -->
+                  </form>
+                `;
+                break;
+              case 'Mes Réservations':
+                contentSection.innerHTML = `
+                  <h2>Mes Réservations</h2>
+                  <p>Vous n'avez aucune réservation en cours.</p>
+                `;
+                break;
+              case 'Mes Véhicules':
+                contentSection.innerHTML = `
+                  <h2>Mes Véhicules</h2>
+                  <p>Vous n'avez aucun véhicule enregistré.</p>
+                  <button>Ajouter un véhicule</button>
+                `;
+                break;
+              case 'Messagerie':
+                contentSection.innerHTML = `
+                  <h2>Messagerie</h2>
+                  <p>Vous n'avez aucun message.</p>
+                `;
+                break;
+              case 'Paramètres':
+                contentSection.innerHTML = `
+                  <h2>Paramètres</h2>
+                  <p>Options de paramètres à venir.</p>
+                `;
+                break;
+              case 'Déconnexion':
+                if(confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                  window.location.href = '/';
+                }
+                break;
+            }
+          }, 500);
+        });
+      });
+
+      // Gestion du formulaire de profil
+      const profileForm = document.querySelector('.profile-form');
+      profileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Profil mis à jour avec succès !');
+      });
+    });
+  </script>
+</body>
+</html>

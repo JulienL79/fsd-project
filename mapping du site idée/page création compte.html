@@ -1,0 +1,313 @@
+<html><head><base href="https://locavan.com/inscription">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Inscription</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 80px;
+  }
+
+  .signup-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .terms {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/connexion">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="signup-container">
+      <h2>Créer un compte</h2>
+      <form id="signup-form">
+        <div class="input-group">
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" name="firstname" required>
+        </div>
+        <div class="input-group">
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" name="lastname" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-group">
+          <label for="confirm-password">Confirmer le mot de passe</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <div class="terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">J'accepte les <a href="/conditions-utilisation">conditions d'utilisation</a> et la <a href="/politique-confidentialite">politique de confidentialité</a>.</label>
+        </div>
+        <button type="submit">Créer mon compte</button>
+      </form>
+      <div class="login-link">
+        <p>Déjà un compte ? <a href="/connexion">Se connecter</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const form = document.getElementById('signup-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const firstname = document.getElementById('firstname').value;
+        const lastname = document.getElementById('lastname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        
+        if (password !== confirmPassword) {
+          alert('Les mots de passe ne correspondent pas.');
+          return;
+        }
+        
+        // Ici, vous implémenteriez normalement la logique d'inscription
+        // Par exemple, une requête AJAX vers votre serveur d'authentification
+        console.log('Tentative d'inscription avec:', email);
+        
+        // Simulation d'une inscription réussie
+        alert('Inscription réussie ! Redirection vers votre espace utilisateur...');
+        // window.location.href = '/espace-utilisateur'; // Redirection vers l'espace utilisateur
+      });
+
+      // Validation en temps réel de l'email
+      const emailInput = document.getElementById('email');
+      emailInput.addEventListener('input', () => {
+        if (emailInput.validity.typeMismatch) {
+          emailInput.setCustomValidity('Veuillez entrer une adresse e-mail valide');
+        } else {
+          emailInput.setCustomValidity('');
+        }
+      });
+
+      // Validation de la force du mot de passe
+      const passwordInput = document.getElementById('password');
+      passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        const strength = checkPasswordStrength(password);
+        passwordInput.style.borderColor = strength.color;
+      });
+
+      function checkPasswordStrength(password) {
+        const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+        if (strongRegex.test(password)) {
+          return { strength: 'Fort', color: '#2ecc71' };
+        } else if (mediumRegex.test(password)) {
+          return { strength: 'Moyen', color: '#f39c12' };
+        } else {
+          return { strength: 'Faible', color: '#e74c3c' };
+        }
+      }
+
+      // Effet de hover sur le bouton
+      const submitButton = document.querySelector('button[type="submit"]');
+      submitButton.addEventListener('mouseover', () => {
+        submitButton.style.transform = 'translateY(-2px)';
+      });
+      submitButton.addEventListener('mouseout', () => {
+        submitButton.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<html><head><base href="https://locavan.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Résultats de recherche</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --filter-bg: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  main {
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  aside {
+    flex: 0 0 250px;
+    background-color: var(--filter-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .filter-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  .filter-option {
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-option label {
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-option input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+
+  .results {
+    flex: 1;
+  }
+
+  .result-item {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .result-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .result-image {
+    flex: 0 0 250px;
+  }
+
+  .result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .result-info {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .result-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .result-description {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .result-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .option-tag {
+    background-color: var(--filter-bg);
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .pagination button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagination button:hover {
+    background-color: #2980b9;
+  }
+
+  .pagination button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/connexion">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside>
+      <div class="filter-section">
+        <h3>Nombre de couchages</h3>
+        <div class="filter-option">
+          <label><input type="checkbox" name="beds" value="2"> 2 places</label>
+        </div>
+        <div class="filter-option">
+          <label><input type="checkbox" name="beds" value="4"> 4 places</label>
+        </div>
+        <div class="filter-option">
+          <label><input type="checkbox" name="beds" value="6"> 6 places</label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <h3>Options</h3>
+        <div class="filter-option">
+          <label><input type="checkbox" name="option" value="climatisation"> Climatisation</label>
+        </div>
+        <div class="filter-option">
+          <label><input type="checkbox" name="option" value="tv"> TV</label>
+        </div>
+        <div class="filter-option">
+          <label><input type="checkbox" name="option" value="douche"> Douche</label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <h3>Tri</h3>
+        <div class="filter-option">
+          <label><input type="radio" name="sort" value="price_asc"> Prix croissant</label>
+        </div>
+        <div class="filter-option">
+          <label><input type="radio" name="sort" value="price_desc"> Prix décroissant</label>
+        </div>
+      </div>
+    </aside>
+
+    <section class="results">
+      <div class="result-item">
+        <div class="result-image">
+          <img src="https://source.unsplash.com/random/250x200/?campervan-1" alt="Camping-car Aventure Plus">
+        </div>
+        <div class="result-info">
+          <h2 class="result-title">Camping-car Aventure Plus</h2>
+          <p class="result-price">100€ / jour</p>
+          <p class="result-description">Partez à l'aventure avec ce camping-car tout équipé. Parfait pour les familles ou les groupes d'amis, il offre tout le confort nécessaire pour des vacances inoubliables.</p>
+          <div class="result-options">
+            <span class="option-tag">4 couchages</span>
+            <span class="option-tag">Climatisation</span>
+            <span class="option-tag">TV</span>
+            <span class="option-tag">Douche</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-item">
+        <div class="result-image">
+          <img src="https://source.unsplash.com/random/250x200/?campervan-2" alt="Van Compact Liberté">
+        </div>
+        <div class="result-info">
+          <h2 class="result-title">Van Compact Liberté</h2>
+          <p class="result-price">80€ / jour</p>
+          <p class="result-description">Ce van compact est idéal pour les couples ou les petites familles. Facile à conduire et à garer, il vous offre une grande liberté de mouvement.</p>
+          <div class="result-options">
+            <span class="option-tag">2 couchages</span>
+            <span class="option-tag">Climatisation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-item">
+        <div class="result-image">
+          <img src="https://source.unsplash.com/random/250x200/?campervan-3" alt="Camping-car Luxe Étoile">
+        </div>
+        <div class="result-info">
+          <h2 class="result-title">Camping-car Luxe Étoile</h2>
+          <p class="result-price">150€ / jour</p>
+          <p class="result-description">Vivez une expérience de camping haut de gamme avec ce camping-car de luxe. Équipements dernier cri et finitions soignées pour un confort optimal.</p>
+          <div class="result-options">
+            <span class="option-tag">6 couchages</span>
+            <span class="option-tag">Climatisation</span>
+            <span class="option-tag">TV</span>
+            <span class="option-tag">Douche</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ajoutez plus d'éléments .result-item ici pour simuler plus de résultats -->
+
+      <div class="pagination">
+        <button disabled>&lt; Précédent</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>Suivant &gt;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Gestion des filtres
+      const filterInputs = document.querySelectorAll('aside input');
+      filterInputs.forEach(input => {
+        input.addEventListener('change', applyFilters);
+      });
+
+      function applyFilters() {
+        // Simuler l'application des filtres
+        console.log('Filtres appliqués');
+        // Ici, vous ajouteriez normalement une requête AJAX pour obtenir les résultats filtrés
+      }
+
+      // Gestion de la pagination
+      const paginationButtons = document.querySelectorAll('.pagination button');
+      paginationButtons.forEach(button => {
+        button.addEventListener('click', changePage);
+      });
+
+      function changePage(e) {
+        // Simuler le changement de page
+        console.log('Page changée :', e.target.textContent);
+        // Ici, vous ajouteriez normalement une requête AJAX pour obtenir les résultats de la nouvelle page
+      }
+
+      // Animation au survol des résultats
+      const resultItems = document.querySelectorAll('.result-item');
+      resultItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          item.style.transform = 'scale(1.02)';
+        });
+        item.addEventListener('mouseleave', () => {
+          item.style.transform = 'scale(1)';
+        });
+      });
+
+      // Chargement progressif des images
+      const images = document.querySelectorAll('img');
+      const imageOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-load');
+            imageObserver.unobserve(img);
+          }
+        });
+      }, imageOptions);
+
+      images.forEach(img => {
+        imageObserver.observe(img);
+      });
+    });
+  </script>
+</body>
+</html>

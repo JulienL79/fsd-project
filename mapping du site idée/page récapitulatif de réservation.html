@@ -1,0 +1,225 @@
+<html><head><base href="https://locavan.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Récapitulatif de commande</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --border-color: #dee2e6;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  main {
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .order-summary {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+  }
+
+  .order-summary h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .summary-section {
+    margin-bottom: 2rem;
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .summary-item strong {
+    font-weight: 600;
+  }
+
+  .total-section {
+    border-top: 2px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  #total-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  .submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/connexion">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="order-summary">
+      <h2>Récapitulatif de commande</h2>
+      <div class="summary-section">
+        <h3>Données de facturation</h3>
+        <div id="billing-info">
+          <div class="summary-item"><strong>Nom complet:</strong> <span>Jean Dupont</span></div>
+          <div class="summary-item"><strong>Email:</strong> <span>jean.dupont@email.com</span></div>
+          <div class="summary-item"><strong>Téléphone:</strong> <span>06 12 34 56 78</span></div>
+          <div class="summary-item"><strong>Adresse:</strong> <span>123 Rue de la Liberté</span></div>
+          <div class="summary-item"><strong>Ville:</strong> <span>Lyon</span></div>
+          <div class="summary-item"><strong>Code postal:</strong> <span>69000</span></div>
+          <div class="summary-item"><strong>Pays:</strong> <span>France</span></div>
+        </div>
+      </div>
+      <div class="summary-section">
+        <h3>Détails de la réservation</h3>
+        <div id="reservation-info">
+          <div class="summary-item"><strong>Véhicule:</strong> <span>Van Compact Adventure</span></div>
+          <div class="summary-item"><strong>Date de début:</strong> <span>2023-07-15</span></div>
+          <div class="summary-item"><strong>Date de fin:</strong> <span>2023-07-22</span></div>
+          <div class="summary-item"><strong>Nombre de jours:</strong> <span>7</span></div>
+          <div class="summary-item"><strong>Prix par jour:</strong> <span>85.00€</span></div>
+        </div>
+      </div>
+      <div class="summary-section total-section">
+        <div id="total-info">
+          <div class="summary-item"><strong>Sous-total HT:</strong> <span>595.00€</span></div>
+          <div class="summary-item"><strong>TVA (20%):</strong> <span>119.00€</span></div>
+          <div class="summary-item" id="total-amount"><strong>Total TTC:</strong> <span>714.00€</span></div>
+        </div>
+      </div>
+      <button id="proceed-to-payment" class="submit-btn">Procéder au paiement</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('proceed-to-payment').addEventListener('click', () => {
+        alert('Redirection vers la page de paiement...');
+        // Ici, vous pouvez ajouter la logique pour passer à la page de paiement
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<html><head><base href="https://locavan.com/espace-utilisateur">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Mes Véhicules</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --hover-color: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar a:hover, .sidebar a.active {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+  }
+
+  .content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .vehicle-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .vehicle-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .vehicle-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .vehicle-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .vehicle-details h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+
+  .vehicle-details p {
+    margin: 0.5rem 0;
+  }
+
+  .vehicle-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .btn-edit {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .btn-edit:hover {
+    background-color: #2980b9;
+  }
+
+  .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+  }
+
+  .btn-delete:hover {
+    background-color: #c0392b;
+  }
+
+  .btn-add {
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .btn-add:hover {
+    background-color: #27ae60;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 1rem 5%;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    height: 100px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/espace-utilisateur">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">Mon Profil</a></li>
+        <li><a href="#">Mes Réservations</a></li>
+        <li><a href="#" class="active">Mes Véhicules</a></li>
+        <li><a href="#">Messagerie</a></li>
+        <li><a href="#">Paramètres</a></li>
+        <li><a href="#">Déconnexion</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Mes Véhicules</h2>
+      <div class="vehicle-list">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Camping-car Luxe Horizon" class="vehicle-image">
+          <div class="vehicle-details">
+            <h3>Camping-car Luxe Horizon</h3>
+            <p><strong>Type:</strong> Camping-car</p>
+            <p><strong>Capacité:</strong> 4 personnes</p>
+            <p><strong>Prix/jour:</strong> 140€</p>
+          </div>
+          <div class="vehicle-actions">
+            <button class="btn btn-edit">Modifier</button>
+            <button class="btn btn-delete">Supprimer</button>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1555876484-a71a693b161b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Van Aventure Plus" class="vehicle-image">
+          <div class="vehicle-details">
+            <h3>Van Aventure Plus</h3>
+            <p><strong>Type:</strong> Van</p>
+            <p><strong>Capacité:</strong> 2 personnes</p>
+            <p><strong>Prix/jour:</strong> 90€</p>
+          </div>
+          <div class="vehicle-actions">
+            <button class="btn btn-edit">Modifier</button>
+            <button class="btn btn-delete">Supprimer</button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-add" id="addVehicleBtn">Ajouter un véhicule</button>
+    </section>
+  </main>
+
+  <div id="addVehicleModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Ajouter un véhicule</h2>
+      <form id="addVehicleForm">
+        <div class="form-group">
+          <label for="vehicleName">Nom du véhicule</label>
+          <input type="text" id="vehicleName" name="vehicleName" required>
+        </div>
+        <div class="form-group">
+          <label for="vehicleType">Type de véhicule</label>
+          <select id="vehicleType" name="vehicleType" required>
+            <option value="">Sélectionnez un type</option>
+            <option value="camping-car">Camping-car</option>
+            <option value="van">Van</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="vehicleCapacity">Capacité (personnes)</label>
+          <input type="number" id="vehicleCapacity" name="vehicleCapacity" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="vehiclePrice">Prix par jour (€)</label>
+          <input type="number" id="vehiclePrice" name="vehiclePrice" min="0" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="vehicleDescription">Description</label>
+          <textarea id="vehicleDescription" name="vehicleDescription" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-add">Ajouter le véhicule</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const modal = document.getElementById("addVehicleModal");
+      const btn = document.getElementById("addVehicleBtn");
+      const span = document.getElementsByClassName("close")[0];
+      const form = document.getElementById("addVehicleForm");
+
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        // Ici, vous ajouteriez la logique pour traiter le formulaire,
+        // par exemple, envoyer les données à un serveur
+        alert("Véhicule ajouté avec succès !");
+        modal.style.display = "none";
+        form.reset();
+      }
+
+      // Gestion des boutons Modifier et Supprimer
+      document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', function() {
+          const vehicleCard = this.closest('.vehicle-card');
+          const vehicleName = vehicleCard.querySelector('h3').textContent;
+          alert(`Modification du véhicule : ${vehicleName}`);
+          // Ici, vous pourriez ouvrir un modal de modification avec les détails pré-remplis
+        });
+      });
+
+      document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', function() {
+          const vehicleCard = this.closest('.vehicle-card');
+          const vehicleName = vehicleCard.querySelector('h3').textContent;
+          if (confirm(`Êtes-vous sûr de vouloir supprimer le véhicule : ${vehicleName} ?`)) {
+            vehicleCard.remove();
+            // Ici, vous enverriez normalement une requête au serveur pour supprimer le véhicule
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

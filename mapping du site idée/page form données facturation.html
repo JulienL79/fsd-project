@@ -1,0 +1,669 @@
+<html><head><base href="https://locavan.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Vans Aménagés</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --filter-bg: #e9ecef;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  main {
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vehicle-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .vehicle-images {
+    flex: 0 0 60%;
+  }
+
+  .main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .image-thumbnails {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .thumbnail:hover {
+    opacity: 0.8;
+  }
+
+  .vehicle-info {
+    flex: 1;
+  }
+
+  .vehicle-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .vehicle-price {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+
+  .vehicle-description {
+    margin-bottom: 1rem;
+  }
+
+  .vehicle-features {
+    margin-bottom: 1rem;
+  }
+
+  .feature {
+    display: inline-block;
+    background-color: var(--filter-bg);
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .availability-calendar {
+    margin-bottom: 2rem;
+  }
+
+  .calendar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .calendar {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .calendar-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calendar-nav {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+
+  .calendar-day {
+    background-color: var(--filter-bg);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .calendar-day.available {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  .calendar-day.unavailable {
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: line-through;
+  }
+
+  .booking-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .booking-form input, .booking-form button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+
+  .booking-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .booking-form button:hover {
+    background-color: #2980b9;
+  }
+
+  .owner-profile {
+    margin-top: 1rem;
+  }
+
+  .owner-profile a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .toggle-switch {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .vehicle-list {
+    margin-bottom: 2rem;
+  }
+
+  .slider-arrow {
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--primary-color);
+    align-self: center;
+  }
+
+  .vehicle-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+  }
+
+  .vehicle-card {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .vehicle-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .articles {
+    margin-top: 2rem;
+  }
+
+  .articles-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .article {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .article-content {
+    padding: 1rem;
+  }
+
+  .article-content h3 {
+    margin: 0.5rem 0;
+  }
+
+  .article-content a {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .billing-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .billing-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/connexion">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="toggle-switch">
+      <input type="radio" id="camping-car" name="vehicle-type" value="camping-car">
+      <label for="camping-car">Camping-car</label>
+      <input type="radio" id="van" name="vehicle-type" value="van" checked>
+      <label for="van">Van</label>
+    </div>
+
+    <section class="vehicle-list">
+      <div class="slider-arrow left">&lt;</div>
+      <div class="vehicle-slider">
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?campervan-1" alt="Van aménagé compact">
+          <div class="vehicle-info">
+            <h3>Van Compact Adventure</h3>
+            <p>Parfait pour les couples, ce van compact offre liberté et confort pour vos escapades.</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?van-interior-1" alt="Van aménagé familial">
+          <div class="vehicle-info">
+            <h3>Family Explorer</h3>
+            <p>Un van spacieux idéal pour les familles, avec tout le confort nécessaire pour vos aventures.</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?campervan-2" alt="Van aménagé luxe">
+          <div class="vehicle-info">
+            <h3>Luxe Nomad</h3>
+            <p>Voyagez avec style dans ce van haut de gamme équipé des dernières technologies.</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?van-offroad" alt="Van tout-terrain">
+          <div class="vehicle-info">
+            <h3>Off-Road Explorer</h3>
+            <p>Partez à l'aventure hors des sentiers battus avec ce van robuste conçu pour l'exploration.</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?eco-van" alt="Van éco-responsable">
+          <div class="vehicle-info">
+            <h3>Eco Voyageur</h3>
+            <p>Un van éco-conçu pour des voyages responsables, équipé de panneaux solaires et de systèmes économes.</p>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://source.unsplash.com/random/400x300/?van-conversion" alt="Van aménagé sur mesure">
+          <div class="vehicle-info">
+            <h3>Custom Dream</h3>
+            <p>Un van entièrement personnalisable pour créer l'espace de vie nomade de vos rêves.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider-arrow right">&gt;</div>
+    </section>
+
+    <section class="availability-calendar">
+      <h2>Disponibilités</h2>
+      <div class="calendar-container">
+        <div class="calendar-nav" id="prevMonth">&lt;</div>
+        <div class="calendar" id="calendar">
+          <!-- Le calendrier sera généré ici par JavaScript -->
+        </div>
+        <div class="calendar-nav" id="nextMonth">&gt;</div>
+      </div>
+    </section>
+
+    <section class="booking-section">
+      <h2>Réserver ce van</h2>
+      <form class="booking-form">
+        <input type="date" placeholder="Date de début">
+        <input type="date" placeholder="Date de fin">
+        <input type="number" placeholder="Nombre de voyageurs">
+        <button type="submit">Réserver maintenant</button>
+      </form>
+      <div class="owner-profile">
+        <p>Vous avez des questions ? <a href="/proprietaire/jean-dupont">Contactez Jean, le propriétaire</a></p>
+      </div>
+    </section>
+
+    <section class="articles">
+      <h2>Conseils et Astuces pour Vans Aménagés</h2>
+      <div class="articles-container">
+        <article class="article">
+          <img src="https://source.unsplash.com/random/400x300/?van-bed" alt="Lit dans un van aménagé">
+          <div class="article-content">
+            <h3>Optimiser l'espace de couchage dans votre van</h3>
+            <p>Découvrez les meilleures solutions pour maximiser le confort de votre espace de sommeil dans un van aménagé.</p>
+            <a href="/article/lit-van-amenage">Lire la suite</a>
+          </div>
+        </article>
+        <article class="article">
+          <img src="https://source.unsplash.com/random/400x300/?van-parking" alt="Stationnement de van">
+          <div class="article-content">
+            <h3>Les meilleurs spots pour stationner votre van</h3>
+            <p>Apprenez à trouver les endroits idéaux pour garer votre van lors de vos voyages, en toute légalité et sécurité.</p>
+            <a href="/article/stationnement-van">Lire la suite</a>
+          </div>
+        </article>
+        <article class="article">
+          <img src="https://source.unsplash.com/random/400x300/?van-kitchen" alt="Cuisine dans un van aménagé">
+          <div class="article-content">
+            <h3>Astuces pour une cuisine fonctionnelle en van</h3>
+            <p>Des conseils pratiques pour aménager et utiliser efficacement l'espace cuisine dans votre van.</p>
+            <a href="/article/cuisine-van">Lire la suite</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="billing-form" class="billing-form">
+      <h2>Informations de facturation</h2>
+      <form id="billing-info-form">
+        <div class="form-group">
+          <label for="fullName">Nom complet</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Numéro de téléphone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Adresse</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+          <label for="city">Ville</label>
+          <input type="text" id="city" name="city" required>
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Code postal</label>
+          <input type="text" id="postalCode" name="postalCode" required>
+        </div>
+        <div class="form-group">
+          <label for="country">Pays</label>
+          <input type="text" id="country" name="country" required>
+        </div>
+        <button type="submit" class="submit-btn">Continuer vers le récapitulatif</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      const mainImage = document.querySelector('.main-image');
+
+      thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+          mainImage.src = thumbnail.src.replace('100x100', '800x600');
+          mainImage.alt = thumbnail.alt;
+        });
+      });
+
+      const bookingForm = document.querySelector('.booking-form');
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const startDate = e.target.elements[0].value;
+        const endDate = e.target.elements[1].value;
+        const travelers = e.target.elements[2].value;
+        alert(`Réservation pour ${travelers} voyageurs du ${startDate} au ${endDate}. Un email de confirmation vous sera envoyé.`);
+      });
+
+      const features = document.querySelectorAll('.feature');
+      features.forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+          feature.style.transform = 'scale(1.1)';
+        });
+        feature.addEventListener('mouseleave', () => {
+          feature.style.transform = 'scale(1)';
+        });
+      });
+
+      const calendarElement = document.getElementById('calendar');
+      const prevMonthButton = document.getElementById('prevMonth');
+      const nextMonthButton = document.getElementById('nextMonth');
+      const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+      let currentDate = new Date();
+
+      function generateCalendar(date) {
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDay = new Date(year, month, 1).getDay();
+
+        let calendarHTML = `
+          <div class="calendar-header">
+            <span>${months[month]} ${year}</span>
+          </div>
+          <div class="calendar-grid">
+        `;
+
+        const weekdays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+        weekdays.forEach(day => {
+          calendarHTML += `<div class="calendar-day weekday">${day}</div>`;
+        });
+
+        for (let i = 0; i < firstDay; i++) {
+          calendarHTML += '<div class="calendar-day"></div>';
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const isAvailable = Math.random() < 0.7;
+          const className = isAvailable ? 'available' : 'unavailable';
+          calendarHTML += `<div class="calendar-day ${className}">${day}</div>`;
+        }
+
+        calendarHTML += `
+          </div>
+        `;
+
+        calendarElement.innerHTML = calendarHTML;
+      }
+
+      generateCalendar(currentDate);
+
+      prevMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        generateCalendar(currentDate);
+      });
+
+      nextMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        generateCalendar(currentDate);
+      });
+
+      const billingForm = document.getElementById('billing-info-form');
+  
+      billingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(billingForm);
+        const billingInfo = Object.fromEntries(formData.entries());
+        
+        localStorage.setItem('billingInfo', JSON.stringify(billingInfo));
+        
+        alert('Redirection vers le récapitulatif de commande...');
+        // window.location.href = '/order-summary.html';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<html><head><base href="https://locavan.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locavan | Explorez autrement</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+  
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .hero {
+    height: 100vh;
+    background-image: url('https://source.unsplash.com/random/1920x1080/?campervan-nature');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 0.5s ease;
+  }
+  
+  .search-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .toggle-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: #e0e0e0;
+    border-radius: 50px;
+    padding: 5px;
+  }
+  
+  .toggle-switch label {
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-switch input[type="radio"] {
+    display: none;
+  }
+  
+  .toggle-switch input[type="radio"]:checked + label {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .search-form input[type="text"],
+  .search-form input[type="date"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .search-form input[type="text"]:focus,
+  .search-form input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+  
+  .search-form button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .search-form button:hover {
+    background: #2980b9;
+  }
+  
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .article {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .article:hover {
+    transform: translateY(-5px);
+  }
+  
+  .article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .article-content {
+    padding: 1.5rem;
+  }
+  
+  .article h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+  
+  .testimonials {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 4rem 5%;
+    text-align: center;
+  }
+  
+  .testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .testimonial-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .testimonial {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 2rem;
+  }
+  
+  .testimonial q {
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  
+  footer {
+    background: #333;
+    color: white;
+    padding: 2rem 5%;
+    text-align: center;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="20" fill="#3498db"/>
+          <path d="M10 25 L20 15 L30 25" stroke="white" stroke-width="3"/>
+          <rect x="13" y="25" width="14" height="7" fill="white"/>
+        </svg>
+        <div>
+          <h1>Locavan</h1>
+          <p>Explorez autrement</p>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/camping-cars">Camping-cars</a>
+        <a href="/vans">Vans</a>
+        <a href="/connexion">Espace utilisateur</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <form class="search-form">
+        <div class="toggle-switch">
+          <input type="radio" id="camping-car" name="vehicle-type" value="camping-car" checked>
+          <label for="camping-car">Camping-car</label>
+          <input type="radio" id="van" name="vehicle-type" value="van">
+          <label for="van">Van</label>
+        </div>
+        <input type="text" placeholder="Lieu de départ">
+        <input type="date" placeholder="Date de départ">
+        <input type="date" placeholder="Date de retour">
+        <button type="submit">Rechercher</button>
+      </form>
+    </section>
+
+    <section class="articles">
+      <article class="article">
+        <img src="https://source.unsplash.com/random/400x300/?campervan" alt="Un camping-car moderne dans un paysage de montagne">
+        <div class="article-content">
+          <h3>Les avantages du camping-car</h3>
+          <p>Découvrez pourquoi le camping-car est le choix idéal pour vos aventures en plein air.</p>
+        </div>
+      </article>
+      <article class="article">
+        <img src="https://source.unsplash.com/random/400x300/?van-life" alt="Un van aménagé garé près d'un lac">
+        <div class="article-content">
+          <h3>La vie en van : liberté et simplicité</h3>
+          <p>Explorez les joies de la vie nomade et les possibilités infinies qu'offre un van aménagé.</p>
+        </div>
+      </article>
+      <article class="article">
+        <img src="https://source.unsplash.com/random/400x300/?rv-camping" alt="Une famille profitant d'un repas devant leur camping-car">
+        <div class="article-content">
+          <h3>Vacances en famille : optez pour le camping-car</h3>
+          <p>Créez des souvenirs inoubliables en famille grâce à des vacances en camping-car.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="testimonials">
+      <h2>Ce que disent nos clients</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <q>Grâce à Locavan, nous avons découvert des endroits magnifiques en toute liberté. Une expérience inoubliable !</q>
+          <p>- Marie et Pierre</p>
+        </div>
+        <div class="testimonial">
+          <q>Le van que nous avons loué était parfaitement équipé et très confortable. Je recommande vivement !</q>
+          <p>- Sophie</p>
+        </div>
+        <div class="testimonial">
+          <q>Un service client au top et des véhicules impeccables. Nous reviendrons pour nos prochaines vacances !</q>
+          <p>- Lucas</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Locavan. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/politique-confidentialite">Politique de confidentialité</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const form = document.querySelector('.search-form');
+      const hero = document.querySelector('.hero');
+      const vehicleTypeInputs = document.querySelectorAll('input[name="vehicle-type"]');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const vehicleType = document.querySelector('input[name="vehicle-type"]:checked').value;
+        const location = document.querySelector('input[type="text"]').value;
+        const startDate = document.querySelector('input[type="date"]:nth-of-type(1)').value;
+        const endDate = document.querySelector('input[type="date"]:nth-of-type(2)').value;
+        
+        alert(`Recherche de ${vehicleType} à ${location} du ${startDate} au ${endDate}`);
+        // Ici, vous pouvez ajouter la logique pour envoyer ces données à votre backend
+      });
+
+      vehicleTypeInputs.forEach(input => {
+        input.addEventListener('change', (e) => {
+          const vehicleType = e.target.value;
+          if (vehicleType === 'van') {
+            hero.style.backgroundImage = 'url("https://source.unsplash.com/random/1920x1080/?van-nature")';
+          } else {
+            hero.style.backgroundImage = 'url("https://source.unsplash.com/random/1920x1080/?campervan-nature")';
+          }
+        });
+      });
+
+      // Animation smooth scroll pour les liens de navigation
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          if (href.startsWith('/')) {
+            document.querySelector(href).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Effet parallax pour l'image de fond
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+      });
+
+      // Animation pour le slider de témoignages
+      const testimonialSlider = document.querySelector('.testimonial-slider');
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      testimonialSlider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - testimonialSlider.offsetLeft;
+        scrollLeft = testimonialSlider.scrollLeft;
+      });
+
+      testimonialSlider.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+
+      testimonialSlider.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+
+      testimonialSlider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - testimonialSlider.offsetLeft;
+        const walk = (x - startX) * 3;
+        testimonialSlider.scrollLeft = scrollLeft - walk;
+      });
+    });
+  </script>
+</body>
+</html>
